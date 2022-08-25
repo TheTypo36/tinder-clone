@@ -1,12 +1,13 @@
 import "../styles/App.css";
 import Header from "./Header.js";
+import TinderCards from "./TinderCards";
 function App() {
   return (
     <div className="App">
-      Tinder Clone
       {/* Header */}
       <Header />
       {/* TinderCard */}
+      <TinderCards />
       {/* Buttons */}
     </div>
   );

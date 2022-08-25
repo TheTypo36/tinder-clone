@@ -1,4 +1,5 @@
 import "../styles/App.css";
+import Footer from "./Footer";
 import Header from "./Header.js";
 import TinderCards from "./TinderCards";
 function App() {
@@ -9,6 +10,7 @@ function App() {
       {/* TinderCard */}
       <TinderCards />
       {/* Buttons */}
+      <Footer />
     </div>
   );
 }

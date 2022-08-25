@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../styles/TinderCards.css";
-import TinderCards from "react-tinder-card";
-import { SwipeableDrawer } from "@mui/material";
+import TinderCard from "react-tinder-card";
 
 function TinderCards() {
   const [people, setPeople] = useState([
@@ -11,22 +10,36 @@ function TinderCards() {
     },
     {
       name: "Sidharth Malhotra",
-      url: "",
+      url: "https://images.inuth.com/2017/05/2sidharthmalhotrasexyfbdp.jpg",
     },
   ]);
+
+  const swiped = (direction, nameToDelete) => {
+    console.log("removing: " + nameToDelete);
+    //setLastDirection(direction);
+  };
+  const outOfFrame = (name) => {
+    console.log(name + " left the screen!");
+  };
+
   return (
     <div className="tinderCards">
-      <div className="tinderCards_cardContainer">
+      <div className="tinderCards_container">
         {people.map((person) => (
-          <TinderCards
+          <TinderCard
             className="swipe"
-            key={character.name}
+            key={person.name}
             preventSwipe={["up", "down"]}
-            onSwipe={(dir) => swiped(dir, character.name)}
-            onCardleScreen={() => outOfFrame(Character, name)}
+            onSwipe={(dir) => swiped(dir, person.name)}
+            onCardleScreen={() => outOfFrame(person.name)}
           >
-            <h1>{person.name}</h1>
-          </TinderCards>
+            <div
+              style={{ backgroundImage: `url(${person.url})` }}
+              className="card"
+            >
+              <h3>{person.name}</h3>
+            </div>
+          </TinderCard>
         ))}
       </div>
     </div>
